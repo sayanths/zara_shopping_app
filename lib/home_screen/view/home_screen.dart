@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 
+import 'widgets/kids_collection.dart';
+import 'widgets/latest_collection.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -9,7 +12,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 212, 208, 208),
-      drawer: const Drawer(),
+      drawer:  Drawer(
+        child: Container(
+          color: Colors.red,
+        ),
+      ),
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: blackColor,
@@ -36,7 +43,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             margin: const EdgeInsets.all(10),
@@ -131,74 +138,35 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Container(
-                  height: 250,
-                  width: 180,
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.circular(14),
+          LimitedBox(
+            maxHeight: 300,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: 10,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return const LatestCollection();
+              },
+            ),
+          ),
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 10),
+             child: Text(
+                    "Kids",
+                    style: gFontsOleo(cl: blackColor, sz: 25),
                   ),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Image.network(
-                            "https://thumbs.dreamstime.com/b/woman-fashion-long-prom-dress-elegant-girl-blue-ball-gown-clothes-isolated-over-white-83241956.jpg",
-                            height: 120),
-                      ),
-                      height,
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Baby doll",
-                                style: gFontsSans(fw: FontWeight.bold),
-                              ),
-                              const Text(
-                                "American brand",
-                                style: TextStyle(color: greyColor),
-                              ),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(),
-                                        //  color: blackColor,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                  ),
-                                  width,
-                                  Container(
-                                    height: 40,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                      // color: Colors.red,
-                                      border: Border.all(),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              // ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+           ),
+          LimitedBox(
+            maxHeight: 300,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: 10,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return const KidsCollection();
+              },
             ),
           ),
         ],
