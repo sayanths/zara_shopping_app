@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
+import 'package:food_delivery/home_screen/view/widgets/drawer.dart';
 
 import 'widgets/kids_collection.dart';
 import 'widgets/latest_collection.dart';
@@ -13,9 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 212, 208, 208),
       drawer:  Drawer(
-        child: Container(
-          color: Colors.red,
-        ),
+        child: CustomDrawer(),
       ),
       appBar: AppBar(
         centerTitle: true,

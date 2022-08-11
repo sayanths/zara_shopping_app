@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/over_view/over_view.dart';
+import 'package:food_delivery/routes/routes.dart';
 
 import '../../../core/color/colors.dart';
 import '../../../core/styles/fonts.dart';
@@ -25,9 +27,12 @@ class LatestCollection extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: Image.network(
-                      "https://thumbs.dreamstime.com/b/woman-fashion-long-prom-dress-elegant-girl-blue-ball-gown-clothes-isolated-over-white-83241956.jpg",
-                      height: 120),
+                  child: InkWell(
+                    onTap: () => Routes.push(screen: OverView()),
+                    child: Image.network(
+                        "https://thumbs.dreamstime.com/b/woman-fashion-long-prom-dress-elegant-girl-blue-ball-gown-clothes-isolated-over-white-83241956.jpg",
+                        height: 120),
+                  ),
                 ),
                 height,
                 Expanded(

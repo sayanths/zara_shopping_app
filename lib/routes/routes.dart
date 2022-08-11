@@ -10,4 +10,8 @@ class Routes {
       ),
     );
   }
+
+  static pop() {
+    navigatorKey.currentState?.pop();
+  }
 }
