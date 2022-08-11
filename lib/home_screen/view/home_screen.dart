@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
@@ -9,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 226, 92, 137),
+      backgroundColor: const Color.fromARGB(255, 212, 208, 208),
       drawer: const Drawer(),
       appBar: AppBar(
         centerTitle: true,
@@ -46,11 +45,10 @@ class HomeScreen extends StatelessWidget {
             decoration: BoxDecoration(
               image: const DecorationImage(
                 image: NetworkImage(
-                    'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fce1e9548-6939-11e6-b5c6-db979e28e7a6.jpg?crop=1890%2C1260%2C25%2C7'),
+                    'https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                 fit: BoxFit.cover,
               ),
-              color: primaryColor,
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(15),
             ),
             child: Row(
               children: [
@@ -58,16 +56,12 @@ class HomeScreen extends StatelessWidget {
                   flex: 2,
                   child: Container(
                     decoration: BoxDecoration(
-                        // color: blackColor.withOpacity(.6),
                         gradient: LinearGradient(colors: [
                           Colors.black,
                           Colors.black.withOpacity(.8),
                           Colors.black.withOpacity(.8),
-                          Colors.white.withOpacity(.1)
+                          Colors.white.withOpacity(.1),
                         ]),
-                        // boxShadow: [
-                        //   BoxShadow(color: Colors.red),
-                        // ],
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(15),
                           topLeft: Radius.circular(20),
@@ -125,13 +119,13 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   "Latest",
-                  style: gFontsOleo(cl: whiteColor, sz: 25),
+                  style: gFontsOleo(cl: blackColor, sz: 25),
                 ),
                 GestureDetector(
                   onTap: () {},
                   child: Text(
                     "view All",
-                    style: gFontsOleo(cl: whiteColor, sz: 18),
+                    style: gFontsOleo(cl: greyColor, sz: 18),
                   ),
                 ),
               ],
@@ -158,33 +152,47 @@ class HomeScreen extends StatelessWidget {
                       ),
                       height,
                       Expanded(
-                        child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Baby doll",
-                              style: gFontsSans(fw: FontWeight.bold),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Baby doll",
+                                style: gFontsSans(fw: FontWeight.bold),
+                              ),
+                              const Text(
+                                "American brand",
+                                style: TextStyle(color: greyColor),
+                              ),
 
-                            ),
-                            Text("American brand"),
-                           Container(
-                            height: 30,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              //color: blackColor
-                            ),
-                            child: OutlinedButton(
-                              onPressed: (){},
-                              child:Row(
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("size"),
-                                  Icon(Icons.arrow_drop_down,color: blackColor,),
+                                  Container(
+                                    height: 40,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(),
+                                        //  color: blackColor,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                  ),
+                                  width,
+                                  Container(
+                                    height: 40,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      // color: Colors.red,
+                                      border: Border.all(),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
                                 ],
-
-                              )
-                               ),
-                           ),
-                          ],
+                              ),
+                              // ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

@@ -9,3 +9,7 @@ const greyColor = Color(0xFF9E9E9E);
 const height = SizedBox(
   height: 10,
 );
+
+const width = SizedBox(
+  width: 10,
+);
