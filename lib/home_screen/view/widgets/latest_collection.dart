@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/over_view/over_view.dart';
+import 'package:food_delivery/over_view/view/over_view.dart';
 import 'package:food_delivery/routes/routes.dart';
 
 import '../../../core/color/colors.dart';
@@ -28,7 +28,7 @@ class LatestCollection extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: () => Routes.push(screen: OverView()),
+                    onTap: () => Routes.push(screen: const ProductOverView()),
                     child: Image.network(
                         "https://thumbs.dreamstime.com/b/woman-fashion-long-prom-dress-elegant-girl-blue-ball-gown-clothes-isolated-over-white-83241956.jpg",
                         height: 120),
@@ -49,7 +49,6 @@ class LatestCollection extends StatelessWidget {
                           "American brand",
                           style: TextStyle(color: greyColor),
                         ),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -58,8 +57,7 @@ class LatestCollection extends StatelessWidget {
                               width: 80,
                               decoration: BoxDecoration(
                                   border: Border.all(color: greyColor),
-                                  borderRadius:
-                                      BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(10)),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -83,14 +81,20 @@ class LatestCollection extends StatelessWidget {
                                   Expanded(
                                     child: IconButton(
                                       onPressed: () {},
-                                      icon: const Icon(Icons.add,color: primaryColor,),
+                                      icon: const Icon(
+                                        Icons.add,
+                                        color: primaryColor,
+                                      ),
                                     ),
                                   ),
                                   const Text("0"),
                                   Expanded(
                                     child: IconButton(
                                       onPressed: () {},
-                                      icon: const Icon(Icons.remove,color: red,),
+                                      icon: const Icon(
+                                        Icons.remove,
+                                        color: red,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -98,7 +102,6 @@ class LatestCollection extends StatelessWidget {
                             ),
                           ],
                         ),
-                      
                       ],
                     ),
                   ),

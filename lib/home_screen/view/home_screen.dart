@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 212, 208, 208),
-      drawer:  Drawer(
+      drawer: const Drawer(
         child: CustomDrawer(),
       ),
       appBar: AppBar(
@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text("Zara's "),
         actions: const [
           CircleAvatar(
-            backgroundColor: Color.fromARGB(255, 243, 176, 224),
+            backgroundColor: Color.fromARGB(255, 247, 200, 234),
             child: Icon(
               Icons.search,
               size: 17,
@@ -32,9 +32,9 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundColor: Color.fromARGB(255, 243, 176, 224),
+              backgroundColor: Color.fromARGB(255, 247, 189, 230),
               child: Icon(
-                Icons.shop,
+                Icons.shopping_cart,
                 size: 17,
                 color: blackColor,
               ),
@@ -131,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {},
                   child: Text(
                     "view All",
-                    style: gFontsOleo(cl: greyColor, sz: 18),
+                    style: gFontsOleo(cl: blackColor, sz: 18),
                   ),
                 ),
               ],
@@ -149,13 +149,13 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ),
-           Padding(
-             padding: const EdgeInsets.symmetric(horizontal: 10),
-             child: Text(
-                    "Kids",
-                    style: gFontsOleo(cl: blackColor, sz: 25),
-                  ),
-           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              "Kids",
+              style: gFontsOleo(cl: blackColor, sz: 25),
+            ),
+          ),
           LimitedBox(
             maxHeight: 300,
             child: ListView.builder(
