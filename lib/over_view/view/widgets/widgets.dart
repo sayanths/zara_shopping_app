@@ -44,3 +44,29 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 }
+
+class SmallMeduimSizeNotifyWidget extends StatelessWidget {
+  final String title;
+  const SmallMeduimSizeNotifyWidget({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(),
+      ),
+      child: Center(
+        child: Text(
+          title,
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+}

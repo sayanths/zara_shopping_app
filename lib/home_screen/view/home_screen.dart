@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 import 'package:food_delivery/home_screen/view/widgets/drawer.dart';
+import 'package:food_delivery/review_cart/view/review_cart.dart';
+import 'package:food_delivery/routes/routes.dart';
+import 'package:food_delivery/search_screen/view/search_screen.dart';
 
 import 'widgets/kids_collection.dart';
 import 'widgets/latest_collection.dart';
@@ -20,23 +23,33 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: blackColor,
         title: const Text("Zara's "),
-        actions: const [
+        actions: [
           CircleAvatar(
-            backgroundColor: Color.fromARGB(255, 247, 200, 234),
-            child: Icon(
-              Icons.search,
-              size: 17,
-              color: blackColor,
+            backgroundColor: const Color.fromARGB(255, 247, 200, 234),
+            child: IconButton(
+              onPressed: () {
+                Routes.push(screen: const SearchScreen());
+              },
+              icon: const Icon(
+                Icons.search,
+                color: blackColor,
+                size: 17,
+              ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundColor: Color.fromARGB(255, 247, 189, 230),
-              child: Icon(
-                Icons.shopping_cart,
-                size: 17,
-                color: blackColor,
+              backgroundColor: const Color.fromARGB(255, 247, 189, 230),
+              child: IconButton(
+                onPressed: () {
+                  Routes.push(screen: const ReviewCart());
+                },
+                icon: const Icon(
+                  Icons.shopping_cart_outlined,
+                  color: blackColor,
+                  size: 17,
+                ),
               ),
             ),
           ),
