@@ -29,8 +29,8 @@ class LatestCollection extends StatelessWidget {
                   flex: 2,
                   child: InkWell(
                     onTap: () => Routes.push(screen: const ProductOverView()),
-                    child: Image.network(
-                        "https://thumbs.dreamstime.com/b/woman-fashion-long-prom-dress-elegant-girl-blue-ball-gown-clothes-isolated-over-white-83241956.jpg",
+                    child: Image.asset(
+                       "assets/images/women_pic.png",
                         height: 120),
                   ),
                 ),

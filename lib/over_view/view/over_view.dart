@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:food_delivery/core/color/colors.dart';
+import 'package:food_delivery/core/styles/fonts.dart';
 import 'package:food_delivery/over_view/view/widgets/widgets.dart';
 
 class ProductOverView extends StatelessWidget {
@@ -36,30 +37,25 @@ class ProductOverView extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 1),
+            child: Text("Jelly Doll",style: gFontsSans(fw: FontWeight.bold,sz: 40),),
+          ),
           Stack(
             children: [
               Column(
                 children: [
                   SizedBox(
-                    height: size.width / 2,
+                    height: size.width / 2.6,
                   ),
                   Container(
-                    height: size.height,
+                    height: size.height / 1.8,
                     width: size.width,
                     decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 220, 215, 214),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(130),
                             topRight: Radius.circular(1))),
-                            child: Column(
-                              children: [
-                                Row(
-                                   children: [
-                                    Text("data")
-                                   ],
-                                ),
-                              ],
-                            ),
                   ),
                 ],
               ),
@@ -74,6 +70,12 @@ class ProductOverView extends StatelessWidget {
                         image: AssetImage("assets/images/women_pic.png"),
                       ),
                     ),
+                  ),
+                  const Text("Available Options"),
+                  Row(
+                    children: [
+                      
+                    ],
                   ),
                 ],
               ),
