@@ -66,13 +66,34 @@ class ReviewCartList extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text.rich(
+                          TextSpan(
+                            text: 'This item costs\n\n',
+                            children: <TextSpan>[
+                              const TextSpan(
+                                text: '\$1500.99 ',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' \$500.00',
+                                style: gFontsSans(fw: FontWeight.w600, sz: 20),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 60),
+                      padding: const EdgeInsets.only(left: 30),
                       child: IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.delete),
+                        icon: const Icon(Icons.delete,color: red,),
                       ),
                     )
                   ],

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/home_screen/model/home_model.dart';
 import 'package:food_delivery/home_screen/view/home_screen.dart';
+import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/sign_screen/viewmodel/auth_pov.dart';
 
@@ -23,18 +25,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SplashPov>(create: (context) => SplashPov()),
-        ChangeNotifierProvider<AuthPov>(create: (context) => AuthPov(FirebaseAuth.instance)),
+        ChangeNotifierProvider<AuthPov>(
+            create: (context) => AuthPov(FirebaseAuth.instance)),
+       ChangeNotifierProvider<ProductController>(create: (context) => ProductController()),
       ],
       child: MaterialApp(
         navigatorKey: Routes.navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Zara',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         home: const HomeScreen(),
       ),
     );
-
   }
 }

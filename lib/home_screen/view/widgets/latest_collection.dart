@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/over_view/view/over_view.dart';
 import 'package:food_delivery/routes/routes.dart';
-
 import '../../../core/color/colors.dart';
 import '../../../core/styles/fonts.dart';
 

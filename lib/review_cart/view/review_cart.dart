@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
-
-import 'widgets/Review_cart_list_tile.dart';
+import 'widgets/review_cartlist_tile.dart';
 
 class ReviewCart extends StatelessWidget {
   const ReviewCart({Key? key}) : super(key: key);
@@ -25,7 +24,10 @@ class ReviewCart extends StatelessWidget {
           "Total Amount",
           style: gFontsSans(sz: 19, fw: FontWeight.w600),
         ),
-        subtitle:  Text("\$170.00",style: gFontsSans(cl: green,ls: 1,sz: 17),),
+        subtitle: Text(
+          "\$500.00",
+          style: gFontsSans(cl: green, ls: 1, sz: 17),
+        ),
         trailing: SizedBox(
           width: 160,
           child: MaterialButton(
