@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 
@@ -43,7 +40,6 @@ class ReviewCartList extends StatelessWidget {
                                 style: gFontsSans(ls: 1, fw: FontWeight.w500),
                               ),
                               const Icon(Icons.arrow_drop_down),
-                              
                             ],
                           ),
                         ),
@@ -62,8 +58,23 @@ class ReviewCartList extends StatelessWidget {
                           "American Brand",
                           style: gFontsSans(cl: greyColor),
                         ),
+                        Container(
+                          height: 10,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: red,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                       ],
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 60),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.delete),
+                      ),
+                    )
                   ],
                 ),
               ],
@@ -74,21 +85,3 @@ class ReviewCartList extends StatelessWidget {
     );
   }
 }
-
-// Column(
-//                     children: [
-//                       Expanded(
-//                           child: Image.asset(
-//                         "assets/images/women_pic.png",
-//                         height: 90,
-//                       )),
-//                       height,
-//                       Expanded(
-//                         child: Container(
-//                           color: Colors.red,
-//                           height: 30,
-//                           width: 60,
-//                         ),
-//                       ),
-//                     ],
-//                   ),

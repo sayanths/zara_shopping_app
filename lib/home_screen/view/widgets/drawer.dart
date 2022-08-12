@@ -10,7 +10,8 @@ class CustomDrawer extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return ColoredBox(
       color: const Color.fromARGB(255, 254, 145, 181),
-      child: Column(
+      child: ListView(
+        shrinkWrap: true,
         children: [
           Row(
             children: [
@@ -38,11 +39,9 @@ class CustomDrawer extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 23,
-          ),
           Container(
-            height: size.height / 1.4,
+            height: 600,
+            // height: size.height ,
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 222, 220, 220),
               borderRadius: BorderRadius.only(
@@ -50,6 +49,8 @@ class CustomDrawer extends StatelessWidget {
             ),
             child: Column(
               children: [
+                height,
+                height,
                 const DrawerListTile(
                     title: 'Profile Name',
                     subTitle: 'Check here',
@@ -76,10 +77,13 @@ class CustomDrawer extends StatelessWidget {
                     icon: Icons.headphones),
                 const DrawerListTile(
                     title: 'About', subTitle: 'Check here', icon: Icons.people),
+                     height,
+                height,
                 Text(
                   "zara pvt ltd.",
                   style: gFontsSans(cl: greyColor),
-                )
+                ),
+               
               ],
             ),
           ),
