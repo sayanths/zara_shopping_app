@@ -8,9 +8,7 @@ import 'package:food_delivery/routes/routes.dart';
 
 class ProductOverView extends StatelessWidget {
   QueryDocumentSnapshot<Object?> lastestData;
-   ProductOverView(
-      {Key? key, required this.lastestData})
-      : super(key: key);
+  ProductOverView({Key? key, required this.lastestData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class ProductOverView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
             child: Text(
-              "Jelly Doll",
+              lastestData['productName'],
               style: gFontsSans(fw: FontWeight.bold, sz: 40),
             ),
           ),
@@ -75,7 +73,7 @@ class ProductOverView extends StatelessWidget {
                   Container(
                     height: size.height / 2,
                     width: size.width / 1.1,
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(lastestData['productImage']),
                       ),
@@ -107,7 +105,7 @@ class ProductOverView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "\$ 500",
+                          " \$ ${lastestData['productPrice'].toString()}",
                           style: gFontsSans(
                               sz: 30,
                               cl: const Color.fromARGB(255, 11, 88, 152)),
