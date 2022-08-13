@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/home_screen/model/home_model.dart';
 
 import '../../../core/color/colors.dart';
 import '../../../core/styles/fonts.dart';
 
 class KidsCollection extends StatelessWidget {
+  final ProductModel kidsDatas;
   const KidsCollection({
     Key? key,
+    required this.kidsDatas,
   }) : super(key: key);
 
   @override
@@ -25,9 +28,7 @@ class KidsCollection extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: Image.network(
-                      "https://smallimg.pngkey.com/png/small/245-2450708_kids-wear-png.png",
-                      height: 120),
+                  child: Image.network(kidsDatas.productImage, height: 120),
                 ),
                 height,
                 Expanded(
@@ -37,12 +38,12 @@ class KidsCollection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Baby doll",
+                          kidsDatas.productName,
                           style: gFontsSans(fw: FontWeight.bold),
                         ),
-                        const Text(
-                          "American brand",
-                          style: TextStyle(color: greyColor),
+                        Text(
+                          kidsDatas.brandName,
+                          style: const TextStyle(color: greyColor),
                         ),
 
                         Row(
@@ -53,8 +54,7 @@ class KidsCollection extends StatelessWidget {
                               width: 80,
                               decoration: BoxDecoration(
                                   border: Border.all(color: greyColor),
-                                  borderRadius:
-                                      BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(10)),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -78,14 +78,20 @@ class KidsCollection extends StatelessWidget {
                                   Expanded(
                                     child: IconButton(
                                       onPressed: () {},
-                                      icon: const Icon(Icons.add,color: primaryColor,),
+                                      icon: const Icon(
+                                        Icons.add,
+                                        color: primaryColor,
+                                      ),
                                     ),
                                   ),
                                   const Text("0"),
                                   Expanded(
                                     child: IconButton(
                                       onPressed: () {},
-                                      icon: const Icon(Icons.remove,color: red,),
+                                      icon: const Icon(
+                                        Icons.remove,
+                                        color: red,
+                                      ),
                                     ),
                                   ),
                                 ],

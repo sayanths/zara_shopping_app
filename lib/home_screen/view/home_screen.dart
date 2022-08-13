@@ -95,8 +95,10 @@ class HomeScreen extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
                             final newdata = snapshot.data!.docs[index];
-                           
-                            return LatestCollection(newdatas: newdata,);
+
+                            return LatestCollection(
+                              newdatas: newdata,
+                            );
                           },
                         )
                       : const Center(
@@ -113,13 +115,22 @@ class HomeScreen extends StatelessWidget {
           ),
           LimitedBox(
             maxHeight: 300,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: 10,
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return const KidsCollection();
+            child: Consumer<ProductRespository>(
+              builder: (context, value, _) {
+                return value.lastestProductLst.isNotEmpty
+                    ? ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        itemCount: value.lastestProductLst.length,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          final kidsData = value.lastestProductLst[index];
+                          return  KidsCollection(kidsDatas :kidsData);
+                        },
+                      )
+                    : const Center(
+                        child: CircularProgressIndicator(),
+                      );
               },
             ),
           ),

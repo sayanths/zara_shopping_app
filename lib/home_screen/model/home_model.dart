@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductModel {
-  String? productName;
-  String? productImage;
-  int? productPrice;
-  String? brandName;
+  String productName;
+  String productImage;
+  int productPrice;
+  String brandName;
 
   ProductModel({
-    this.productName,
-    this.productImage,
-    this.productPrice,
-    this.brandName,
+   required this.productName,
+   required this.productImage,
+   required this.productPrice,
+   required this.brandName,
   });
 
    factory ProductModel.fromSnapshot(DocumentSnapshot<Map<String,dynamic>> snap) {
