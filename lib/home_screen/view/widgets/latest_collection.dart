@@ -33,10 +33,9 @@ class LatestCollection extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: () => Routes.push(screen:  ProductOverView(lastestData :newdatas)),
-                    child:
-                        Image.network(newdatas['productImage']
-                        , height: 120),
+                    onTap: () => Routes.push(
+                        screen: ProductOverView(lastestData: newdatas)),
+                    child: Image.network(newdatas['productImage'], height: 120),
                   ),
                 ),
                 height,
@@ -50,9 +49,9 @@ class LatestCollection extends StatelessWidget {
                           newdatas['productName'],
                           style: gFontsSans(fw: FontWeight.bold),
                         ),
-                         Text(
+                        Text(
                           newdatas['brandName'],
-                          style: TextStyle(color: greyColor),
+                          style: const TextStyle(color: greyColor),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

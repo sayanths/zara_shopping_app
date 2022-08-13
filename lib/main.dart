@@ -4,6 +4,7 @@ import 'package:food_delivery/home_screen/model/home_model.dart';
 import 'package:food_delivery/home_screen/view/home_screen.dart';
 import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/routes/routes.dart';
+import 'package:food_delivery/search_screen/view_model/search_controller.dart';
 import 'package:food_delivery/sign_screen/viewmodel/auth_pov.dart';
 
 import 'package:food_delivery/splash_screen/viewmodel/splash_pov.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<AuthPov>(
             create: (context) => AuthPov(FirebaseAuth.instance)),
        ChangeNotifierProvider<ProductRespository>(create: (context) => ProductRespository()),
+    //   ChangeNotifierProvider<SearchController>(create: (context) => SearchController()),
       ],
       child: MaterialApp(
         navigatorKey: Routes.navigatorKey,

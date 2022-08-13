@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
@@ -102,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                           },
                         )
                       : const Center(
-                          child: CircularProgressIndicator(),
+                          child: CupertinoActivityIndicator(),
                         );
                 },
               )),
@@ -129,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                         },
                       )
                     : const Center(
-                        child: CircularProgressIndicator(),
+                        child: CupertinoActivityIndicator(),
                       );
               },
             ),
