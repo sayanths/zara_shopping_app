@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pov = context.read<ProductController>();
+    final pov = context.read<ProductRespository>();
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 212, 208, 208),
       drawer: const Drawer(
@@ -82,17 +83,27 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           LimitedBox(
-            maxHeight: 300,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: 10,
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return const LatestCollection();
-              },
-            ),
-          ),
+              maxHeight: 300,
+              child: StreamBuilder(
+                stream: pov.obj.snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  return snapshot.hasData
+                      ? ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: snapshot.data!.docs.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            final newdata = snapshot.data!.docs[index];
+                           
+                            return LatestCollection(newdatas: newdata,);
+                          },
+                        )
+                      : const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                },
+              )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
@@ -117,4 +128,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

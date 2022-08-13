@@ -1,12 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/home_screen/model/home_model.dart';
+import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/over_view/view/over_view.dart';
 import 'package:food_delivery/routes/routes.dart';
+import 'package:provider/provider.dart';
 import '../../../core/color/colors.dart';
 import '../../../core/styles/fonts.dart';
 
 class LatestCollection extends StatelessWidget {
+  final QueryDocumentSnapshot<Object?> newdatas;
   const LatestCollection({
     Key? key,
+    required this.newdatas,
   }) : super(key: key);
 
   @override
@@ -27,10 +33,10 @@ class LatestCollection extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: () => Routes.push(screen: const ProductOverView()),
-                    child: Image.asset(
-                       "assets/images/women_pic.png",
-                        height: 120),
+                    onTap: () => Routes.push(screen:  ProductOverView(lastestData :newdatas)),
+                    child:
+                        Image.network(newdatas['productImage']
+                        , height: 120),
                   ),
                 ),
                 height,
@@ -41,11 +47,11 @@ class LatestCollection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Baby doll",
+                          newdatas['productName'],
                           style: gFontsSans(fw: FontWeight.bold),
                         ),
-                        const Text(
-                          "American brand",
+                         Text(
+                          newdatas['brandName'],
                           style: TextStyle(color: greyColor),
                         ),
                         Row(

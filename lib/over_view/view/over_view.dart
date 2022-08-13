@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:food_delivery/core/color/colors.dart';
@@ -6,7 +7,10 @@ import 'package:food_delivery/over_view/view/widgets/widgets.dart';
 import 'package:food_delivery/routes/routes.dart';
 
 class ProductOverView extends StatelessWidget {
-  const ProductOverView({Key? key}) : super(key: key);
+  QueryDocumentSnapshot<Object?> lastestData;
+   ProductOverView(
+      {Key? key, required this.lastestData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +75,9 @@ class ProductOverView extends StatelessWidget {
                   Container(
                     height: size.height / 2,
                     width: size.width / 1.1,
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/images/women_pic.png"),
+                        image: NetworkImage(lastestData['productImage']),
                       ),
                     ),
                   ),

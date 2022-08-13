@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<SplashPov>(create: (context) => SplashPov()),
         ChangeNotifierProvider<AuthPov>(
             create: (context) => AuthPov(FirebaseAuth.instance)),
-       ChangeNotifierProvider<ProductController>(create: (context) => ProductController()),
+       ChangeNotifierProvider<ProductRespository>(create: (context) => ProductRespository()),
       ],
       child: MaterialApp(
         navigatorKey: Routes.navigatorKey,
