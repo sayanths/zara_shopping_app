@@ -7,8 +7,9 @@ import 'package:food_delivery/over_view/view/widgets/widgets.dart';
 import 'package:food_delivery/routes/routes.dart';
 
 class ProductOverView extends StatelessWidget {
-  QueryDocumentSnapshot<Object?> lastestData;
-  ProductOverView({Key? key, required this.lastestData}) : super(key: key);
+  final QueryDocumentSnapshot<Object?> lastestData;
+  const ProductOverView({Key? key, required this.lastestData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

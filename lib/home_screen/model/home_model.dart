@@ -13,14 +13,14 @@ class ProductModel {
     this.brandName,
   });
 
-  static ProductModel fromSnapshot(DocumentSnapshot snap) {
-    ProductModel product = ProductModel(
+   factory ProductModel.fromSnapshot(DocumentSnapshot<Map<String,dynamic>> snap) {
+    return ProductModel(
       productName: snap['productName'],
       productImage: snap['productImage'],
       productPrice: snap['productPrice'],
       brandName: snap['brandName'],
     );
-    return product;
+
   }
 
   Map<String, dynamic> toSnapShot() => {
