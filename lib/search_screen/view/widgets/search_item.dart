@@ -1,20 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-
 class SearchItem extends StatelessWidget {
-  const SearchItem({Key? key}) : super(key: key);
+  final DocumentSnapshot<Object?> searchData;
+  const SearchItem({
+    Key? key,
+    required this.searchData,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ListTile(
-          title: const Text(
-            "product name",
+          title: Text(
+            searchData['productName'],
           ),
-          subtitle: const Text("brand nane"),
+          subtitle: Text(searchData['brandName']),
           trailing: const Icon(Icons.arrow_upward),
-          leading: Image.asset("assets/images/women_pic.png"),
+          leading: Image.network(searchData['productImage']),
         ),
       ],
     );
