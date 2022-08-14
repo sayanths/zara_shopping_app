@@ -8,6 +8,7 @@ import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/search_screen/view_model/search_controller.dart';
 import 'package:food_delivery/sign_screen/model/sign_screen.dart';
 import 'package:food_delivery/sign_screen/viewmodel/auth_pov.dart';
+import 'package:food_delivery/splash_screen/view/splash_screen.dart';
 
 import 'package:food_delivery/splash_screen/viewmodel/splash_pov.dart';
 import 'package:provider/provider.dart';

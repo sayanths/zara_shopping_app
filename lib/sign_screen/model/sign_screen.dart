@@ -47,7 +47,7 @@ class SignScreen extends StatelessWidget {
                       SignInButton(
                         Buttons.Google,
                         onPressed: () {
-                          context.read<AuthPov>().googleSignin();
+                          context.read<AuthPov>().googleSignin(context);
                         },
                       ),
                       SignInButton(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/core/color/colors.dart';
+import 'package:food_delivery/core/styles/images.dart';
 import 'package:food_delivery/splash_screen/viewmodel/splash_pov.dart';
 import 'package:provider/provider.dart';
-import '../../core/styles/images.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,13 +16,13 @@ class SplashScreen extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               colors: [
-                secondaryColor,
-                primaryColor,
+                Color.fromARGB(255, 177, 0, 59),
+                Colors.black,
               ],
             ),
             image: DecorationImage(
-              image: AssetImage(
-                backGrounImage,
+              image: NetworkImage(
+                logo,
               ),
             ),
           ),

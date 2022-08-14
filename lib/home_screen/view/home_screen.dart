@@ -118,14 +118,14 @@ class HomeScreen extends StatelessWidget {
             maxHeight: 300,
             child: Consumer<ProductRespository>(
               builder: (context, value, _) {
-                return value.lastestProductLst.isNotEmpty
+                return value.kidsDressCollection.isNotEmpty
                     ? ListView.builder(
                         physics: const BouncingScrollPhysics(),
-                        itemCount: value.lastestProductLst.length,
+                        itemCount: value.kidsDressCollection.length,
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
-                          final kidsData = value.lastestProductLst[index];
+                          final kidsData = value.kidsDressCollection[index];
                           return  KidsCollection(kidsDatas :kidsData);
                         },
                       )
