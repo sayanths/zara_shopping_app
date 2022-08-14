@@ -20,7 +20,8 @@ class SearchScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: ListView(
+        body: 
+        Column(
           children: [
             const ListTile(
               title: Text("items"),
@@ -41,10 +42,14 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
             height,
-            const SearchItem()
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const SearchItem();
+                  }),
+            ),
           ],
-        ));
-    //   ),
-    // );
+        ),);
   }
 }
