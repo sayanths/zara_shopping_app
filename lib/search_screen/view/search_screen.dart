@@ -9,22 +9,18 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: blackColor,
-        title: const Text("Search"),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.category),
-          ),
-        ],
-      ),
-      body:
-      //  Consumer<SearchController>(
-      //   builder: (context, value, _) => 
-     ListView(
+        appBar: AppBar(
+          backgroundColor: blackColor,
+          title: const Text("Search"),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.category),
+            ),
+          ],
+        ),
+        body: ListView(
           children: [
             const ListTile(
               title: Text("items"),
@@ -33,7 +29,6 @@ class SearchScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 15),
               height: 52,
               child: TextField(
-              // controller: value.textEditingController,
                 decoration: InputDecoration(
                   hintText: 'Search for the items in the store',
                   border: OutlineInputBorder(
@@ -46,9 +41,9 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
             height,
-             SearchItem()
+            const SearchItem()
           ],
-    ));
+        ));
     //   ),
     // );
   }

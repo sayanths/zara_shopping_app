@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,8 +27,10 @@ class AuthPov extends ChangeNotifier {
         ),
       );
 
-      Routes.push(screen: const HomeScreen());
+      
 
+      Routes.push(screen: const HomeScreen());
+      
       return Future.value('');
     } on FirebaseAuthException catch (ex) {
       return Future.value(ex.message);

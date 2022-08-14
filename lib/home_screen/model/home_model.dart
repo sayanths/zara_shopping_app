@@ -23,7 +23,7 @@ class ProductModel {
 
   }
 
-  Map<String, dynamic> toSnapShot() => {
+     Map<String, dynamic> toSnapShot() => {
         "productName": productName,
         "productImage": productImage,
         "productPrice": productPrice,

@@ -16,17 +16,12 @@ class SignScreen extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
             colors: [
-              secondaryColor,
-              primaryColor,
+              Colors.black,
+              Color.fromARGB(255, 177, 0, 59),
             ],
-          ),
-          image: DecorationImage(
-            image: AssetImage(
-              backGrounImage,
-            ),
           ),
         ),
         child: Column(
@@ -38,13 +33,14 @@ class SignScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                 
                   Text(
-                    'Sign in to continue',
-                    style: gFontsSans(ls: 1),
+                    'Zara Fashion style',
+                    style: gFontsOleo(ls: 1, sz: 40, cl: whiteColor),
                   ),
-                  Text(
-                    'Food Bazar',
-                    style: gFontsOleo(ls: 1, sz: 30, cl: whiteColor),
+                   Text(
+                    'A complete fashion store',
+                    style: gFontsSans(ls: 1,cl: whiteColor),
                   ),
                   Column(
                     children: [
@@ -64,11 +60,15 @@ class SignScreen extends StatelessWidget {
                     children: [
                       Text(
                         'By signing in you are agreeing to our',
-                        style: gFontsSans(),
+                        style: gFontsSans(
+                            cl: const Color.fromARGB(255, 173, 171, 148)),
                       ),
                       Text(
                         'Terms and Privacy Policy',
-                        style: gFontsSans(cl: whiteColor.withOpacity(.7), fw: FontWeight.w500),
+                        style: gFontsSans(
+                            cl: const Color.fromARGB(255, 171, 217, 255)
+                                .withOpacity(.7),
+                            fw: FontWeight.w500),
                       ),
                     ],
                   ),
