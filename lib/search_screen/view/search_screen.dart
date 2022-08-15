@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/search_screen/view/widgets/search_item.dart';
-import 'package:food_delivery/search_screen/view_model/search_controller.dart';
-import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);

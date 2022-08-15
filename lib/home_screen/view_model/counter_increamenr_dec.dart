@@ -8,13 +8,13 @@ class CounterIncreamentDec extends ChangeNotifier {
   getCounter() => count;
   setCounter(int counter) => count = counter;
 
-  incrementCounter() {
-    count++;
+  incrementCounter(String valueInc) {
+    valueInc != 0 ? count++ : count;
     notifyListeners();
   }
 
-  decrementCounter() {
-    count--;
+  decrementCounter(String valueDec) {
+     valueDec != 0 ? count-- : count;
     notifyListeners();
   }
 }

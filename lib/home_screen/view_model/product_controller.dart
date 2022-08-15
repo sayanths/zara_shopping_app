@@ -7,6 +7,11 @@ class ProductRespository with ChangeNotifier {
     fetchEmployee();
     kidsDress();
   }
+  String discountAmount(num productPrice, num productOffer) {
+    num prec = ((productPrice - productOffer)/productPrice * 100);
+    return prec.toStringAsFixed(2);
+  }
+
   List<ProductModel> lastestProductLst = [];
   List<ProductModel> kidsDressCollection = [];
   final obj = FirebaseFirestore.instance.collection('LatestModel');

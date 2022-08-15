@@ -1,15 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/home_screen/model/home_model.dart';
 import 'package:food_delivery/home_screen/view/home_screen.dart';
 import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/home_screen/view_model/user_provider.dart';
+import 'package:food_delivery/review_cart/view_model/review_cart_controller.dart';
 import 'package:food_delivery/routes/routes.dart';
-import 'package:food_delivery/search_screen/view_model/search_controller.dart';
-import 'package:food_delivery/sign_screen/model/sign_screen.dart';
 import 'package:food_delivery/sign_screen/viewmodel/auth_pov.dart';
-import 'package:food_delivery/splash_screen/view/splash_screen.dart';
-
 import 'package:food_delivery/splash_screen/viewmodel/splash_pov.dart';
 import 'package:provider/provider.dart';
 // ignore: depend_on_referenced_packages
@@ -31,8 +27,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<SplashPov>(create: (context) => SplashPov()),
         ChangeNotifierProvider<AuthPov>(
             create: (context) => AuthPov(FirebaseAuth.instance)),
-       ChangeNotifierProvider<ProductRespository>(create: (context) => ProductRespository()),
-       ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider()),
+        ChangeNotifierProvider<ProductRespository>(
+            create: (context) => ProductRespository()),
+        ChangeNotifierProvider<UserProvider>(
+            create: (context) => UserProvider()),
+        ChangeNotifierProvider<ReviewCartController>(
+            create: (context) => ReviewCartController()),
       ],
       child: MaterialApp(
         navigatorKey: Routes.navigatorKey,
