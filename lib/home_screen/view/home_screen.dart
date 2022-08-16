@@ -96,7 +96,6 @@ class HomeScreen extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
                             final newdata = snapshot.data!.docs[index];
-
                             return LatestCollection(
                               newdatas: newdata,
                             );
@@ -120,13 +119,15 @@ class HomeScreen extends StatelessWidget {
               builder: (context, value, _) {
                 return value.kidsDressCollection.isNotEmpty
                     ? ListView.builder(
+                      
                         physics: const BouncingScrollPhysics(),
                         itemCount: value.kidsDressCollection.length,
+
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
                           final kidsData = value.kidsDressCollection[index];
-                          return  KidsCollection(kidsDatas :kidsData);
+                          return KidsCollection(kidsDatas: kidsData);
                         },
                       )
                     : const Center(

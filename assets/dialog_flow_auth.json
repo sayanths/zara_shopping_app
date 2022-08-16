@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "saya-hjty",
+  "private_key_id": "01a36433070e9dbfd9ecbab8faffbdce76eb45cc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLdAq0Nb9PSO/u\nnqdrBu0ZBzm8BwBmVpvwsZ5yGRwY9WNw+Q73O8UmOPudJt7+hE3c2XoVbRtIoX20\npeLg+rCtdvngSHEP3LvbWYAWxAZBipP0DglZjfprOoX3xfcBaUaEGtWCN+U10gqR\nW2rEiBdibTZV7Hp+F+Dl2ROWbtdiEqNXJBMLZjlVLTzF2fP/sFtKHGPgVjPgNJwD\n119WYu78p6lVCEE+Jm8CZW8rG3v2fM4XY3boiNYkA2rHwNhWEjxnimXtK8HB5Ttx\nBVW1g1AW4QyyYfsQCq7xc9mFLE6gUGgiz9AkTWXEltTgxKGlkxeYodWhcGQkIyw3\nbN+FzMlHAgMBAAECggEAFgyM7mvWwGJwskUacsRs5KX+UUzW88BWJRcyyz3CaEgL\nz14Gi6+8FYDeb/EbAK1Y/OLK0tCgwNXTmETUGjrA9AOtX+up6SSsbUC9W3pCDU9V\n6oCs7bov1fghNbGMK+h7XmzED9k764HIaGlmYEc5dY7NcTFwMwMmefJ1J3v6tqOJ\n+3f41dcJSJe4HpfziR8o01tbzWhvISJTyqlpPIcrklzN90oqNt5zxkBdZKUsPGSj\nFzdwqXwE+T/s38LIBQryPlaw/aBX/UEvd1KuIBVAMXR3DGsKQf3eCahH4URDgOJR\npZX2U1W9Yd/9bgjNmv5RKp7MqjxoiUkdVRCe3WjJzQKBgQDojEHfnscfDh9mf95H\nMRBpbfalwzDqWE5UE2vuxNTi32q+9A0qOjvo7aMgv96uLwbEzNV+QJ5TfSXuz/k0\nEagPVKEPyp+NkvfD6cBI31KmCqU3F2Cz/M9S3D71Xk1gBTv5CH4Jy5ilCet3Lyhu\n2Xur3UZcngoG1cNC/jfhl6hmswKBgQDf+KSE7P7dvNOZ0SCGZmXFsBhv0UPnq36D\nl34hzCEQ1bIeHbf5+x2Ob5V/tU4Jdw1iV6MmvY3A6FL2zEUCZs02tI0ycLbbefI3\neoFH67ZuJ2MMvQuGlTgBrzpHRSkLy7okv4oh2cILjTkUILlsvqZmdCeBaQEXDNLn\nbs475/29HQKBgGeYC8RdjCDWfsB/l/qo7cG5vdWsNX8/5Wzo1f0g7CFBG+GDANZd\n6NBkBHaTYtS/mElVYooCqUVSC/Lt7Pr4HqDtt248eoVsAjnhSMptyfiz51O6c1ba\n+VTVTqqp3tg2nLfcw6EDdLWYzK9kb6Op+MDgKvcZZCgVVA3lB+nUUK2nAoGBAIl0\nUpvVy1EQmxiylPCHFXyu50BwwOkEgf+G0P0zBzQKwmbjPE7qA6iv6KNZBQygCRHK\n0TFscfvrWUdn9A5WQymIw4MqU77851+PCpq2Gd8ewxZFSzaMi7PU88JbuqYnoRT+\njGrb9tAaGua0crg/hWYpcTll1SptT16DzYRMi5gtAoGBAKq3D3RIednQIK0OoP3i\nu177wsNNe3qtP6nmc1Qums6XHgcyfa5AZgwsrtTnLUH30LuVoSxExcQVgSgNmTDi\niJY0SU1B9eAnTy3Tcp18Q70SEH0shAtGLcizfKQc5NoJ4W0lcaRA9vo5SmMcIfk5\nulpA1da9DfnZPwxcPu22G7Lq\n-----END PRIVATE KEY-----\n",
+  "client_email": "sayanthshopping@saya-hjty.iam.gserviceaccount.com",
+  "client_id": "114087290036799656374",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sayanthshopping%40saya-hjty.iam.gserviceaccount.com"
+}

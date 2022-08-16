@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 
 class ReviewCartList extends StatelessWidget {
-  const ReviewCartList({Key? key}) : super(key: key);
+ final QueryDocumentSnapshot<Object?> reviewCartData;
+   ReviewCartList({
+    Key? key, required this.reviewCartData,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,8 @@ class ReviewCartList extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        Image.asset(
-                          "assets/images/women_pic.png",
+                        Image.network(
+                          reviewCartData['cartImage'],
                           height: 100,
                         ),
                         height,
@@ -93,7 +97,10 @@ class ReviewCartList extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 30),
                       child: IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.delete,color: red,),
+                        icon: const Icon(
+                          Icons.delete,
+                          color: red,
+                        ),
                       ),
                     )
                   ],

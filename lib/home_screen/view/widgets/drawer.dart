@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/botchat/view/chat_bot.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
+import 'package:food_delivery/routes/routes.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -71,19 +73,23 @@ class CustomDrawer extends StatelessWidget {
                     title: 'Terms and Condition',
                     subTitle: 'Check here',
                     icon: Icons.file_copy_outlined),
-                const DrawerListTile(
-                    title: 'Support',
-                    subTitle: 'Check here',
-                    icon: Icons.headphones),
+                GestureDetector(
+                  onTap: () {
+                    Routes.push(screen: ChatBot());
+                  },
+                  child: DrawerListTile(
+                      title: 'Support',
+                      subTitle: 'Check here',
+                      icon: Icons.headphones),
+                ),
                 const DrawerListTile(
                     title: 'About', subTitle: 'Check here', icon: Icons.people),
-                     height,
+                height,
                 height,
                 Text(
                   "zara pvt ltd.",
                   style: gFontsSans(cl: greyColor),
                 ),
-               
               ],
             ),
           ),

@@ -11,15 +11,29 @@ import 'package:food_delivery/review_cart/view_model/review_cart_controller.dart
 import 'package:food_delivery/routes/routes.dart';
 import 'package:provider/provider.dart';
 
-class ProductOverView extends StatelessWidget {
-  final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
+class ProductOverView extends StatefulWidget {
   final QueryDocumentSnapshot<Object?> lastestData;
 
   ProductOverView({Key? key, required this.lastestData}) : super(key: key);
 
   @override
+  State<ProductOverView> createState() => _ProductOverViewState();
+}
+
+class _ProductOverViewState extends State<ProductOverView> {
+ late
+  String productImage;
+   late String productName;
+    late String productId;
+     late String productQuantity;
+      late String productPrice;
+
+  final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
+
+  @override
   Widget build(BuildContext context) {
     final pov = context.read<ProductRespository>();
+    final cartPov = context.read<ReviewCartController>();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteColor,
@@ -49,6 +63,7 @@ class ProductOverView extends StatelessWidget {
         ],
       ),
       body: ListView(
+        shrinkWrap: true,
         children: [
           Container(
             decoration: const BoxDecoration(
@@ -60,7 +75,7 @@ class ProductOverView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
               child: Text(
-                lastestData['productName'],
+                widget.lastestData['productName'],
                 style: gFontsSans(fw: FontWeight.bold, sz: 30, cl: whiteColor),
               ),
             ),
@@ -82,7 +97,7 @@ class ProductOverView extends StatelessWidget {
                     width: size.width / 1.1,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(lastestData['productImage']),
+                        image: NetworkImage(widget.lastestData['productImage']),
                       ),
                     ),
                   ),
@@ -115,13 +130,13 @@ class ProductOverView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              " \$ ${lastestData['productoffers'].toString()}",
+                              " \$ ${widget.lastestData['productoffers'].toString()}",
                               style: gFontsSans(
                                   sz: 30, cl: green, fw: FontWeight.bold),
                             ),
                             width,
                             Text(
-                              " \$ ${lastestData['productPrice'].toString()}",
+                              " \$ ${widget.lastestData['productPrice'].toString()}",
                               style: const TextStyle(
                                   color: red,
                                   decoration: TextDecoration.lineThrough,
@@ -141,13 +156,13 @@ class ProductOverView extends StatelessWidget {
                   ),
                   height,
                   Text(
-                    " Onam special ${pov.discountAmount(lastestData['productPrice'], lastestData['productoffers'])}% off- ",
+                    " Onam special ${pov.discountAmount(widget.lastestData['productPrice'], widget.lastestData['productoffers'])}% off- ",
                     style: const TextStyle(color: green),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: RatingBar.builder(
-                      initialRating: lastestData['productRating'],
+                      initialRating: widget.lastestData['productRating'],
                       itemSize: 25,
                       minRating: 1,
                       direction: Axis.horizontal,
@@ -183,10 +198,12 @@ class ProductOverView extends StatelessWidget {
           Consumer<ReviewCartController>(
             builder: (context, value, _) => InkWell(
               onTap: () {
-                value.addReviewCartData(
-                  cartId: idd.id,
-                  // cartImage:
-                );
+                // value.addReviewCartData(
+                //   cartId: idd.id,
+                //   cartImage: lastestData['productImage'],
+                //   cartName: lastestData['productName'],
+                //   cartPrice: lastestData['productPrice'],
+                // );
               },
               child: const CustomBottomNavBar(
                 iconColor: whiteColor,
@@ -198,9 +215,9 @@ class ProductOverView extends StatelessWidget {
             ),
           ),
           const CustomBottomNavBar(
-            iconColor: blackColor,
-            backgroundColor: greyColor,
-            color: blackColor,
+            iconColor: whiteColor,
+            backgroundColor: Color.fromARGB(255, 161, 0, 54),
+            color: whiteColor,
             title: "Buy Now",
             iconData: Icons.shopping_bag,
           ),

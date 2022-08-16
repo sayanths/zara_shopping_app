@@ -1,4 +1,4 @@
-class Cart {
+class CartModel {
   String? cartId;
   String? cartImage;
   int? cartPrice;
@@ -6,7 +6,7 @@ class Cart {
   int? cartquantity;
   String? cartName;
 
-  Cart({
+  CartModel({
     this.cartId,
     this.cartImage,
     this.cartPrice,

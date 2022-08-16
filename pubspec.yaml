@@ -12,6 +12,7 @@ dependencies:
   change_app_package_name: ^1.1.0
   cloud_firestore: ^3.4.4
   cupertino_icons: ^1.0.2
+  dialog_flowtter: ^0.3.3
   firebase_auth: ^3.6.2
   flutter:
     sdk: flutter
@@ -31,7 +32,7 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/images/
+    - assets/
   # fonts:
   #   - family: Schyler
   #     fonts:

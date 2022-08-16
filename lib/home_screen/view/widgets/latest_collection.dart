@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:food_delivery/over_view/view/over_view.dart';
@@ -48,7 +49,10 @@ class LatestCollection extends StatelessWidget {
                               newdatas['productName'],
                               style: gFontsSans(fw: FontWeight.bold),
                             ),
-                            const Icon(Icons.favorite_border_outlined,color: red,),
+                            const Icon(
+                              Icons.favorite_border_outlined,
+                              color: red,
+                            ),
                           ],
                         ),
                         Text(
@@ -71,7 +75,9 @@ class LatestCollection extends StatelessWidget {
                                 color: Colors.amber,
                               ),
                               onRatingUpdate: (rating) {
-                                print(rating);
+                                if (kDebugMode) {
+                                  print(rating);
+                                }
                               },
                             ),
                           ],
