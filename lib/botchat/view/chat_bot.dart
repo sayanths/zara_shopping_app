@@ -26,8 +26,11 @@ class _ChatBotState extends State<ChatBot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Container(
+      appBar: AppBar(
+        backgroundColor: blackColor,
+      ),
+      body: ColoredBox(
+        color: const Color.fromARGB(255, 116, 1, 39),
         child: Column(
           children: [
             Expanded(
