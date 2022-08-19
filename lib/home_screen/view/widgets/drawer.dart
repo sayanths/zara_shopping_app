@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/botchat/view/chat_bot.dart';
 import 'package:food_delivery/core/color/colors.dart';
@@ -17,9 +18,10 @@ class CustomDrawer extends StatelessWidget {
         children: [
           Row(
             children: [
-              const DrawerHeader(
+               DrawerHeader(
                 child: CircleAvatar(
                   radius: 60,
+                  backgroundImage: NetworkImage(FirebaseAuth.instance.currentUser!.photoURL.toString()),
                   backgroundColor: Color.fromARGB(255, 176, 158, 0),
                 ),
               ),

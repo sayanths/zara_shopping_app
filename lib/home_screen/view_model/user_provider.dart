@@ -11,7 +11,7 @@ class UserProvider extends ChangeNotifier {
   }) async {
     await FirebaseFirestore.instance
         .collection('userProfile')
-        .doc(currentUser.uid)
+        .doc(FirebaseAuth.instance.currentUser!.email)
         .set({
       "userName": userName,
       "userEmail": userEmail,

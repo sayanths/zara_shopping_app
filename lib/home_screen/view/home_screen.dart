@@ -9,7 +9,6 @@ import 'package:food_delivery/review_cart/view/review_cart.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/search_screen/view/search_screen.dart';
 import 'package:provider/provider.dart';
-
 import 'widgets/carsoul_slider.dart';
 import 'widgets/kids_collection.dart';
 import 'widgets/latest_collection.dart';

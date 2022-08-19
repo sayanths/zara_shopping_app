@@ -14,19 +14,19 @@ import 'package:provider/provider.dart';
 class ProductOverView extends StatefulWidget {
   final QueryDocumentSnapshot<Object?> lastestData;
 
-  ProductOverView({Key? key, required this.lastestData}) : super(key: key);
+  const ProductOverView({Key? key, required this.lastestData})
+      : super(key: key);
 
   @override
   State<ProductOverView> createState() => _ProductOverViewState();
 }
 
 class _ProductOverViewState extends State<ProductOverView> {
- late
-  String productImage;
-   late String productName;
-    late String productId;
-     late String productQuantity;
-      late String productPrice;
+  late String productImage;
+  late String productName;
+  late String productId;
+  late String productQuantity;
+  late String productPrice;
 
   final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
 
@@ -80,117 +80,116 @@ class _ProductOverViewState extends State<ProductOverView> {
               ),
             ),
           ),
-          Stack(
+          //   Stack(
+          //   children: [
+          Column(
             children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: size.width / 2.6,
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: size.height / 2,
-                    width: size.width / 1.1,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(widget.lastestData['productImage']),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "Available Options",
-                    style: gFontsSans(fw: FontWeight.w500),
-                  ),
-                  height,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      SmallMeduimSizeNotifyWidget(
-                        title: 'S',
-                      ),
-                      SmallMeduimSizeNotifyWidget(
-                        title: 'M',
-                      ),
-                      SmallMeduimSizeNotifyWidget(
-                        title: 'L',
-                      ),
-                    ],
-                  ),
-                  height,
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //
-                        Row(
-                          children: [
-                            Text(
-                              " \$ ${widget.lastestData['productoffers'].toString()}",
-                              style: gFontsSans(
-                                  sz: 30, cl: green, fw: FontWeight.bold),
-                            ),
-                            width,
-                            Text(
-                              " \$ ${widget.lastestData['productPrice'].toString()}",
-                              style: const TextStyle(
-                                  color: red,
-                                  decoration: TextDecoration.lineThrough,
-                                  fontSize: 20),
-                            ),
-                          ],
-                        ),
-
-                        Text(
-                          "12 piece Avaliable",
-                          style: gFontsSans(
-                              sz: 15,
-                              cl: const Color.fromARGB(255, 254, 13, 13)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  height,
-                  Text(
-                    " Onam special ${pov.discountAmount(widget.lastestData['productPrice'], widget.lastestData['productoffers'])}% off- ",
-                    style: const TextStyle(color: green),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: RatingBar.builder(
-                      initialRating: widget.lastestData['productRating'],
-                      itemSize: 25,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {
-                        if (kDebugMode) {
-                          print(rating);
-                        }
-                      },
-                    ),
-                  ),
-                  Text(
-                    "Description",
-                    style: gFontsSans(cl: greyColor),
-                  ),
-                  height,
-                  const Text(
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printe It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                  ),
-                ],
+              SizedBox(
+                height: size.width / 10,
               ),
             ],
           ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: size.height / 2,
+                width: size.width / 1.1,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(widget.lastestData['productImage']),
+                  ),
+                ),
+              ),
+              Text(
+                "Available Options",
+                style: gFontsSans(fw: FontWeight.w500),
+              ),
+              height,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  SmallMeduimSizeNotifyWidget(
+                    title: 'S',
+                  ),
+                  SmallMeduimSizeNotifyWidget(
+                    title: 'M',
+                  ),
+                  SmallMeduimSizeNotifyWidget(
+                    title: 'L',
+                  ),
+                ],
+              ),
+              height,
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //
+                    Row(
+                      children: [
+                        Text(
+                          " \$ ${widget.lastestData['productoffers'].toString()}",
+                          style: gFontsSans(
+                              sz: 30, cl: green, fw: FontWeight.bold),
+                        ),
+                        width,
+                        Text(
+                          " \$ ${widget.lastestData['productPrice'].toString()}",
+                          style: const TextStyle(
+                              color: red,
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 20),
+                        ),
+                      ],
+                    ),
+
+                    Text(
+                      "12 piece Avaliable",
+                      style: gFontsSans(
+                          sz: 15, cl: const Color.fromARGB(255, 254, 13, 13)),
+                    ),
+                  ],
+                ),
+              ),
+              height,
+              Text(
+                " Onam special ${pov.discountAmount(widget.lastestData['productPrice'], widget.lastestData['productoffers'])}% off- ",
+                style: const TextStyle(color: green),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RatingBar.builder(
+                  initialRating: widget.lastestData['productRating'],
+                  itemSize: 25,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  onRatingUpdate: (rating) {
+                    if (kDebugMode) {
+                      print(rating);
+                    }
+                  },
+                ),
+              ),
+              Text(
+                "Description",
+                style: gFontsSans(cl: greyColor),
+              ),
+              height,
+              const Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printe It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+              ),
+            ],
+          ),
+          // ],
+          // ),
         ],
       ),
       bottomNavigationBar: Row(
@@ -198,12 +197,12 @@ class _ProductOverViewState extends State<ProductOverView> {
           Consumer<ReviewCartController>(
             builder: (context, value, _) => InkWell(
               onTap: () {
-                // value.addReviewCartData(
-                //   cartId: idd.id,
-                //   cartImage: lastestData['productImage'],
-                //   cartName: lastestData['productName'],
-                //   cartPrice: lastestData['productPrice'],
-                // );
+                value.addReviewCartData(
+                  cartName: widget.lastestData['productName'],
+                  cartmage: widget.lastestData['productImage'],
+                  cartPrice: widget.lastestData['productPrice'],
+                  cartBrandName: widget.lastestData['brandName'],
+                );
               },
               child: const CustomBottomNavBar(
                 iconColor: whiteColor,

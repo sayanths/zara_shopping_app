@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 
+
 class ReviewCartList extends StatelessWidget {
- final QueryDocumentSnapshot<Object?> reviewCartData;
-   ReviewCartList({
-    Key? key, required this.reviewCartData,
+  final QueryDocumentSnapshot<Object?> reviewCartData;
+  const ReviewCartList({
+    Key? key,
+    required this.reviewCartData,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -26,7 +29,7 @@ class ReviewCartList extends StatelessWidget {
                     Column(
                       children: [
                         Image.network(
-                          reviewCartData['cartImage'],
+                          reviewCartData['cartmage'],
                           height: 100,
                         ),
                         height,
@@ -55,11 +58,11 @@ class ReviewCartList extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "Jolly Doll",
+                          reviewCartData['cartName'],
                           style: gFontsSans(fw: FontWeight.w700),
                         ),
                         Text(
-                          "American Brand",
+                          reviewCartData['cartBrandName'],
                           style: gFontsSans(cl: greyColor),
                         ),
                         Container(

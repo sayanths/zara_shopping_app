@@ -6,6 +6,7 @@ import 'package:food_delivery/home_screen/view_model/user_provider.dart';
 import 'package:food_delivery/review_cart/view_model/review_cart_controller.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/sign_screen/viewmodel/auth_pov.dart';
+import 'package:food_delivery/splash_screen/view/splash_screen.dart';
 import 'package:food_delivery/splash_screen/viewmodel/splash_pov.dart';
 import 'package:provider/provider.dart';
 // ignore: depend_on_referenced_packages
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: Routes.navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Zara',
-        home: const HomeScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
