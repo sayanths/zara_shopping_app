@@ -68,9 +68,7 @@ class _ProductOverViewState extends State<ProductOverView> {
           Container(
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 16, 0, 0),
-              // borderRadius: BorderRadius.only(
-              //     topLeft: Radius.circular(40),
-              //     topRight: Radius.circular(40))
+            
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
