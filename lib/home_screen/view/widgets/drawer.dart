@@ -18,11 +18,11 @@ class CustomDrawer extends StatelessWidget {
         children: [
           Row(
             children: [
-               DrawerHeader(
+              DrawerHeader(
                 child: CircleAvatar(
                   radius: 60,
-                  backgroundImage: NetworkImage(FirebaseAuth.instance.currentUser!.photoURL.toString()),
-                  backgroundColor: Color.fromARGB(255, 176, 158, 0),
+                  backgroundImage: NetworkImage(
+                      FirebaseAuth.instance.currentUser!.photoURL.toString()),
                 ),
               ),
               Container(
@@ -77,9 +77,9 @@ class CustomDrawer extends StatelessWidget {
                     icon: Icons.file_copy_outlined),
                 GestureDetector(
                   onTap: () {
-                    Routes.push(screen: ChatBot());
+                    Routes.push(screen: const ChatBot());
                   },
-                  child: DrawerListTile(
+                  child: const DrawerListTile(
                       title: 'Support',
                       subTitle: 'Check here',
                       icon: Icons.headphones),
