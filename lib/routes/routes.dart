@@ -14,4 +14,11 @@ class Routes {
   static pop() {
     navigatorKey.currentState?.pop();
   }
+   static pushreplace({required var screen}) {
+    navigatorKey.currentState?.pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => screen,
+      ),
+    );
+  }
 }
