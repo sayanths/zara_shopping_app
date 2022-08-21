@@ -31,15 +31,7 @@ class AuthPov extends ChangeNotifier {
         ),
       );
       final userDetail = userProfile.user;
-      //final User? user = (await _ath.signInWithCredential(credential)).user;
 
-      //used to get the data from the user and to display it in the place like login screen etc
-      // context.read<UserProvider>().addUserData(
-      //       currentUser: user!,
-      //       userName: user.displayName,
-      //       userEmail: user.email,
-      //       userImage: user.photoURL,
-      //     );
       if (userProfile.additionalUserInfo!.isNewUser == true) {
         final userData = UserModel(
           name: userDetail!.displayName.toString(),
