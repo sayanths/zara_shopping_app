@@ -9,6 +9,7 @@ import 'package:food_delivery/review_cart/view/review_cart.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/search_screen/view/search_screen.dart';
 import 'package:provider/provider.dart';
+import '../view_model/notification.dart';
 import 'widgets/carsoul_slider.dart';
 import 'widgets/kids_collection.dart';
 import 'widgets/latest_collection.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pov = context.read<ProductRespository>();
+    context.read<NotificationController>().getDeviceTokenToSendNotification();
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 212, 208, 208),
       drawer: const Drawer(
@@ -118,10 +120,8 @@ class HomeScreen extends StatelessWidget {
               builder: (context, value, _) {
                 return value.kidsDressCollection.isNotEmpty
                     ? ListView.builder(
-                      
                         physics: const BouncingScrollPhysics(),
                         itemCount: value.kidsDressCollection.length,
-
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
