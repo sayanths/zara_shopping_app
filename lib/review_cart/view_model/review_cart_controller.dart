@@ -3,6 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ReviewCartController extends ChangeNotifier {
+
+
+  
   void addReviewCartData({
     required String cartName,
     required String cartmage,
@@ -14,7 +17,7 @@ class ReviewCartController extends ChangeNotifier {
         .collection("userProfile")
         .doc(FirebaseAuth.instance.currentUser?.email)
         .collection("cart")
-        .doc()
+        .doc(cartName)
         .set({
       "cartName": cartName,
       "cartmage": cartmage,
@@ -25,4 +28,15 @@ class ReviewCartController extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  deleteCartItem(String name) {
+    FirebaseFirestore.instance
+        .collection("userProfile")
+        .doc(FirebaseAuth.instance.currentUser?.email)
+        .collection("cart")
+        .doc(name)
+        .delete();
+  }
+
+
 }

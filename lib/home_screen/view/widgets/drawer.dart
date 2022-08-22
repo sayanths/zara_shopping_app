@@ -4,6 +4,9 @@ import 'package:food_delivery/botchat/view/chat_bot.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 import 'package:food_delivery/routes/routes.dart';
+import 'package:provider/provider.dart';
+
+import '../../../sign_screen/viewmodel/auth_pov.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -25,21 +28,26 @@ class CustomDrawer extends StatelessWidget {
                       FirebaseAuth.instance.currentUser!.photoURL.toString()),
                 ),
               ),
-              Container(
-                height: 40,
-                width: 60,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 222, 200, 0),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    )),
-                child: Center(
-                    child: Text(
-                  "Log out",
-                  textAlign: TextAlign.center,
-                  style: gFontsSans(fw: FontWeight.bold),
-                )),
+              InkWell(
+                onTap: () {
+                  context.read<AuthPov>().logoutUser();
+                },
+                child: Container(
+                  height: 40,
+                  width: 60,
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 222, 200, 0),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      )),
+                  child: Center(
+                      child: Text(
+                    "Log out",
+                    textAlign: TextAlign.center,
+                    style: gFontsSans(fw: FontWeight.bold),
+                  )),
+                ),
               ),
             ],
           ),

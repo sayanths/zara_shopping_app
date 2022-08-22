@@ -1,9 +1,6 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:food_delivery/home_screen/view_model/local_notification_service.dart';
 import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/home_screen/view_model/user_provider.dart';
@@ -35,7 +32,7 @@ void main() async {
 
       );
   FirebaseMessaging.onBackgroundMessage(backGroundHandler);
-LocalNotificationService.initialize;
+  LocalNotificationService.initialize;
   runApp(const MyApp());
 }
 

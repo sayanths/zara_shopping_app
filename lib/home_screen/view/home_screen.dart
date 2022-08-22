@@ -10,7 +10,7 @@ import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/search_screen/view/search_screen.dart';
 import 'package:provider/provider.dart';
 import '../view_model/notification.dart';
-import 'widgets/carsoul_slider.dart';
+import 'widgets/carsoul/view/carsoul_slider.dart';
 import 'widgets/kids_collection.dart';
 import 'widgets/latest_collection.dart';
 
@@ -118,6 +118,7 @@ class HomeScreen extends StatelessWidget {
             maxHeight: 300,
             child: Consumer<ProductRespository>(
               builder: (context, value, _) {
+                print("ds");
                 return value.kidsDressCollection.isNotEmpty
                     ? ListView.builder(
                         physics: const BouncingScrollPhysics(),

@@ -59,4 +59,10 @@ class AuthPov extends ChangeNotifier {
     final obj = await SharedPreferences.getInstance();
     obj.setBool('userLoged', true);
   }
+
+  logoutUser() async {
+    await FirebaseAuth.instance.signOut();
+    notifyListeners();
+  }
+  
 }

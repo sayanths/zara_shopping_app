@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/color/colors.dart';
-import '../../../core/styles/fonts.dart';
+import '../../../../../core/color/colors.dart';
+import '../../../../../core/styles/fonts.dart';
 
 class CarosoulSliderHomePage extends StatelessWidget {
   const CarosoulSliderHomePage({

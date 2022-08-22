@@ -65,38 +65,38 @@ class KidsCollection extends StatelessWidget {
                               ),
                             ),
                             width,
-                            Container(
-                              height: 40,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                // color: Colors.red,
-                                border: Border.all(color: greyColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.add,
-                                        color: primaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                  const Text("0"),
-                                  Expanded(
-                                    child: IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.remove,
-                                        color: red,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            // Container(
+                            //   height: 40,
+                            //   width: 80,
+                            //   decoration: BoxDecoration(
+                            //     // color: Colors.red,
+                            //     border: Border.all(color: greyColor),
+                            //     borderRadius: BorderRadius.circular(10),
+                            //   ),
+                            //   child: Row(
+                            //     children: [
+                            //       Expanded(
+                            //         child: IconButton(
+                            //           onPressed: () {},
+                            //           icon: const Icon(
+                            //             Icons.add,
+                            //             color: primaryColor,
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       const Text("0"),
+                            //       Expanded(
+                            //         child: IconButton(
+                            //           onPressed: () {},
+                            //           icon: const Icon(
+                            //             Icons.remove,
+                            //             color: red,
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                           ],
                         ),
                         // ),

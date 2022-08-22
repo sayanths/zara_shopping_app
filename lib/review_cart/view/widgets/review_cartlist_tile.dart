@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
-
+import 'package:food_delivery/review_cart/view_model/review_cart_controller.dart';
+import 'package:provider/provider.dart';
 
 class ReviewCartList extends StatelessWidget {
   final QueryDocumentSnapshot<Object?> reviewCartData;
@@ -13,7 +14,7 @@ class ReviewCartList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final pov = context.read<ReviewCartController>();
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -34,19 +35,18 @@ class ReviewCartList extends StatelessWidget {
                         ),
                         height,
                         Container(
-                          height: 35,
-                          width: 80,
+                          margin: const EdgeInsets.symmetric(horizontal: 6),
+                          height: size.height / 25,
+                          width: size.width / 5.5,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(color: greyColor)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                "qty:1",
-                                style: gFontsSans(ls: 1, fw: FontWeight.w500),
-                              ),
-                              const Icon(Icons.arrow_drop_down),
+                            children: const [
+                              Icon(Icons.add),
+                              Text("0"),
+                              Icon(Icons.remove),
                             ],
                           ),
                         ),
@@ -99,7 +99,11 @@ class ReviewCartList extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 30),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          pov.deleteCartItem(
+                            reviewCartData['cartName'],
+                          );
+                        },
                         icon: const Icon(
                           Icons.delete,
                           color: red,
