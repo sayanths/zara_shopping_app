@@ -1,13 +1,13 @@
 class UserModel {
   final String name;
   final String email;
-  final String profile;
+  final String? profile;
   final bool verified;
 
   UserModel({
     required this.name,
     required this.email,
-    required this.profile,
+     this.profile,
     required this.verified,
   });
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,7 +7,6 @@ import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/sign_screen/model/sign_model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../home_screen/view/home_screen.dart';
 
 class AuthPov extends ChangeNotifier {
@@ -45,6 +46,7 @@ class AuthPov extends ChangeNotifier {
             .set(
               userData.toSnapshot(),
             );
+        log(userData.toString());
       }
       await saveUserData();
       Routes.pushreplace(screen: const HomeScreen());
@@ -64,5 +66,4 @@ class AuthPov extends ChangeNotifier {
     await FirebaseAuth.instance.signOut();
     notifyListeners();
   }
-  
 }

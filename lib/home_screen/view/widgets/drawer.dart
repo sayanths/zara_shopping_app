@@ -30,7 +30,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  context.read<AuthPov>().logoutUser();
+                 // context.read<AuthPov>().logoutUser();
                 },
                 child: Container(
                   height: 40,
