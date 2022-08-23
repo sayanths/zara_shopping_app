@@ -31,7 +31,7 @@ class LatestCollection extends StatelessWidget {
                   flex: 2,
                   child: InkWell(
                     onTap: () => Routes.push(
-                        screen: ProductOverView(lastestData: newdatas)),
+                        screen: ProductOverView(data: newdatas)),
                     child: Image.network(newdatas['productImage'], height: 120),
                   ),
                 ),

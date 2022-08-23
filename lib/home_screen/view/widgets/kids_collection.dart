@@ -2,15 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:food_delivery/over_view/view/over_view.dart';
+import 'package:food_delivery/routes/routes.dart';
 
 import '../../../core/color/colors.dart';
 import '../../../core/styles/fonts.dart';
 
 class KidsCollection extends StatelessWidget {
-  final QueryDocumentSnapshot<Object?> kidsDatas;
+  final QueryDocumentSnapshot<Object?> data;
   const KidsCollection({
     Key? key,
-    required this.kidsDatas,
+    required this.data,
   }) : super(key: key);
 
   @override
@@ -28,9 +30,14 @@ class KidsCollection extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Image.network(kidsDatas['productImage'], height: 120),
+                InkWell(
+                  onTap: () {
+                    Routes.push(screen: ProductOverView(data: data));
+                  },
+                  child: Expanded(
+                    flex: 2,
+                    child: Image.network(data['productImage'], height: 120),
+                  ),
                 ),
                 height,
                 Expanded(
@@ -40,11 +47,11 @@ class KidsCollection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          kidsDatas['productName'],
+                          data['productName'],
                           style: gFontsSans(fw: FontWeight.bold),
                         ),
                         Text(
-                          kidsDatas['brandName'],
+                          data['brandName'],
                           style: const TextStyle(color: greyColor),
                         ),
 
@@ -52,8 +59,7 @@ class KidsCollection extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RatingBar.builder(
-                              initialRating:
-                                  kidsDatas['productRating'],
+                              initialRating: data['productRating'],
                               itemSize: 15,
                               minRating: 1,
                               direction: Axis.horizontal,

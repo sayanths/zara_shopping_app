@@ -12,22 +12,22 @@ import 'package:food_delivery/review_cart/view_model/review_cart_controller.dart
 import 'package:food_delivery/routes/routes.dart';
 import 'package:provider/provider.dart';
 
-class ProductOverView extends StatefulWidget {
-  final QueryDocumentSnapshot<Object?> lastestData;
+class ProductOverView extends StatelessWidget {
+  final QueryDocumentSnapshot<Object?> data;
 
-  const ProductOverView({Key? key, required this.lastestData})
+   ProductOverView({Key? key, required this.data})
       : super(key: key);
 
-  @override
-  State<ProductOverView> createState() => _ProductOverViewState();
-}
+//   @override
+//   State<ProductOverView> createState() => _ProductOverViewState();
+// }
 
-class _ProductOverViewState extends State<ProductOverView> {
-  late String productImage;
-  late String productName;
-  late String productId;
-  late String productQuantity;
-  late String productPrice;
+// class _ProductOverViewState extends State<ProductOverView> {
+  // late String productImage;
+  // late String productName;
+  // late String productId;
+  // late String productQuantity;
+  // late String productPrice;
 
  // final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
 
@@ -73,13 +73,12 @@ class _ProductOverViewState extends State<ProductOverView> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
               child: Text(
-                widget.lastestData['productName'],
+                data['productName'],
                 style: gFontsSans(fw: FontWeight.bold, sz: 30, cl: whiteColor),
               ),
             ),
           ),
-          //   Stack(
-          //   children: [
+        
           Column(
             children: [
               SizedBox(
@@ -95,7 +94,7 @@ class _ProductOverViewState extends State<ProductOverView> {
                 width: size.width / 1.1,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(widget.lastestData['productImage']),
+                    image: NetworkImage(data['productImage']),
                   ),
                 ),
               ),
@@ -128,13 +127,13 @@ class _ProductOverViewState extends State<ProductOverView> {
                     Row(
                       children: [
                         Text(
-                          " \$ ${widget.lastestData['productoffers'].toString()}",
+                          " \$ ${data['productoffers'].toString()}",
                           style: gFontsSans(
                               sz: 30, cl: green, fw: FontWeight.bold),
                         ),
                         width,
                         Text(
-                          " \$ ${widget.lastestData['productPrice'].toString()}",
+                          " \$ ${data['productPrice'].toString()}",
                           style: const TextStyle(
                               color: red,
                               decoration: TextDecoration.lineThrough,
@@ -153,7 +152,7 @@ class _ProductOverViewState extends State<ProductOverView> {
               ),
               height,
               Text(
-                " Onam special ${pov.discountAmount(widget.lastestData['productPrice'], widget.lastestData['productoffers'])}% off- ",
+                " Onam special ${pov.discountAmount(data['productPrice'], data['productoffers'])}% off- ",
                 style: const TextStyle(color: green),
               ),
               Row(
@@ -162,7 +161,7 @@ class _ProductOverViewState extends State<ProductOverView> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: RatingBar.builder(
-                      initialRating: widget.lastestData['productRating'],
+                      initialRating: data['productRating'],
                       itemSize: 25,
                       minRating: 1,
                       direction: Axis.horizontal,
@@ -217,10 +216,10 @@ class _ProductOverViewState extends State<ProductOverView> {
               child: InkWell(
                 onTap: () {
                   value.addReviewCartData(
-                    cartName: widget.lastestData['productName'],
-                    cartmage: widget.lastestData['productImage'],
-                    cartPrice: widget.lastestData['productPrice'],
-                    cartBrandName: widget.lastestData['brandName'],
+                    cartName: data['productName'],
+                    cartmage: data['productImage'],
+                    cartPrice: data['productPrice'],
+                    cartBrandName: data['brandName'],
                   );
                  value.snackbarFunction(context);
                 },

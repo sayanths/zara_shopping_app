@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                           itemBuilder: (BuildContext context, int index) {
                             final kidsData = snapshot.data!.docs[index];
                             return KidsCollection(
-                              kidsDatas: kidsData,
+                              data: kidsData,
                             );
                           },
                         )

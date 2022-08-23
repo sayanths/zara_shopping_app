@@ -36,7 +36,7 @@ class ReviewCartList extends StatelessWidget {
                           ),
                           height,
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 6),
+                            margin: const EdgeInsets.symmetric(horizontal: 30),
                             height: size.height / 25,
                             width: size.width / 5.5,
                             decoration: BoxDecoration(
@@ -52,9 +52,6 @@ class ReviewCartList extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
-                      SizedBox(
-                        width: size.width / 6,
                       ),
                       Column(
                         children: [
@@ -90,7 +87,8 @@ class ReviewCartList extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text: ' \$500.00',
-                                  style: gFontsSans(fw: FontWeight.w600, sz: 20),
+                                  style:
+                                      gFontsSans(fw: FontWeight.w600, sz: 20),
                                 ),
                               ],
                             ),
