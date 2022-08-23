@@ -7,6 +7,7 @@ import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/over_view/view/widgets/widgets.dart';
+import 'package:food_delivery/payments/view/payments.dart';
 import 'package:food_delivery/review_cart/view_model/review_cart_controller.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class _ProductOverViewState extends State<ProductOverView> {
   late String productQuantity;
   late String productPrice;
 
-  final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
+ // final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +69,6 @@ class _ProductOverViewState extends State<ProductOverView> {
           Container(
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 16, 0, 0),
-            
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
@@ -156,25 +156,45 @@ class _ProductOverViewState extends State<ProductOverView> {
                 " Onam special ${pov.discountAmount(widget.lastestData['productPrice'], widget.lastestData['productoffers'])}% off- ",
                 style: const TextStyle(color: green),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RatingBar.builder(
-                  initialRating: widget.lastestData['productRating'],
-                  itemSize: 25,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemCount: 5,
-                  itemBuilder: (context, _) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RatingBar.builder(
+                      initialRating: widget.lastestData['productRating'],
+                      itemSize: 25,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: (rating) {
+                        if (kDebugMode) {
+                          print(rating);
+                        }
+                      },
+                    ),
                   ),
-                  onRatingUpdate: (rating) {
-                    if (kDebugMode) {
-                      print(rating);
-                    }
-                  },
-                ),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                  Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: red,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                          child: Text(
+                        "1",
+                        textAlign: TextAlign.center,
+                        style: gFont(cl: whiteColor),
+                      ))),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.remove)),
+                ],
               ),
               Text(
                 "Description",
@@ -193,30 +213,38 @@ class _ProductOverViewState extends State<ProductOverView> {
       bottomNavigationBar: Row(
         children: [
           Consumer<ReviewCartController>(
-            builder: (context, value, _) => InkWell(
-              onTap: () {
-                value.addReviewCartData(
-                  cartName: widget.lastestData['productName'],
-                  cartmage: widget.lastestData['productImage'],
-                  cartPrice: widget.lastestData['productPrice'],
-                  cartBrandName: widget.lastestData['brandName'],
-                );
-              },
-              child: const CustomBottomNavBar(
-                iconColor: whiteColor,
-                backgroundColor: blackColor,
-                color: whiteColor,
-                title: "Add to cart",
-                iconData: Icons.favorite,
+            builder: (context, value, _) => Expanded(
+              child: InkWell(
+                onTap: () {
+                  value.addReviewCartData(
+                    cartName: widget.lastestData['productName'],
+                    cartmage: widget.lastestData['productImage'],
+                    cartPrice: widget.lastestData['productPrice'],
+                    cartBrandName: widget.lastestData['brandName'],
+                  );
+                 value.snackbarFunction(context);
+                },
+                child: const CustomBottomNavBar(
+                  iconColor: whiteColor,
+                  backgroundColor: blackColor,
+                  color: whiteColor,
+                  title: "Add to cart",
+                  iconData: Icons.favorite,
+                ),
               ),
             ),
           ),
-          const CustomBottomNavBar(
-            iconColor: whiteColor,
-            backgroundColor: Color.fromARGB(255, 161, 0, 54),
-            color: whiteColor,
-            title: "Buy Now",
-            iconData: Icons.shopping_bag,
+          Expanded(
+            child: InkWell(
+              onTap: () => Routes.push(screen: const PaymentMethod()),
+              child: const CustomBottomNavBar(
+                iconColor: whiteColor,
+                backgroundColor: Color.fromARGB(255, 161, 0, 54),
+                color: whiteColor,
+                title: "Buy Now",
+                iconData: Icons.shopping_bag,
+              ),
+            ),
           ),
         ],
       ),

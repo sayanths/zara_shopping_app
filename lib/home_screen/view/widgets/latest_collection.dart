@@ -42,18 +42,9 @@ class LatestCollection extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              newdatas['productName'],
-                              style: gFontsSans(fw: FontWeight.bold),
-                            ),
-                            const Icon(
-                              Icons.favorite_border_outlined,
-                              color: red,
-                            ),
-                          ],
+                        Text(
+                          newdatas['productName'],
+                          style: gFontsSans(fw: FontWeight.bold),
                         ),
                         Text(
                           newdatas['brandName'],

@@ -115,27 +115,28 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           LimitedBox(
-            maxHeight: 300,
-            child: Consumer<ProductRespository>(
-              builder: (context, value, _) {
-                print("ds");
-                return value.kidsDressCollection.isNotEmpty
-                    ? ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: value.kidsDressCollection.length,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          final kidsData = value.kidsDressCollection[index];
-                          return KidsCollection(kidsDatas: kidsData);
-                        },
-                      )
-                    : const Center(
-                        child: CupertinoActivityIndicator(),
-                      );
-              },
-            ),
-          ),
+              maxHeight: 300,
+              child: StreamBuilder(
+                stream: pov.kidsCollectionss.snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  return snapshot.hasData
+                      ? ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: snapshot.data!.docs.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            final kidsData = snapshot.data!.docs[index];
+                            return KidsCollection(
+                              kidsDatas: kidsData,
+                            );
+                          },
+                        )
+                      : const Center(
+                          child: CupertinoActivityIndicator(),
+                        );
+                },
+              )),
         ],
       ),
     );

@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/core/color/colors.dart';
 
 class ReviewCartController extends ChangeNotifier {
-
-
-  
   void addReviewCartData({
     required String cartName,
     required String cartmage,
@@ -18,13 +16,15 @@ class ReviewCartController extends ChangeNotifier {
         .doc(FirebaseAuth.instance.currentUser?.email)
         .collection("cart")
         .doc(cartName)
-        .set({
-      "cartName": cartName,
-      "cartmage": cartmage,
-      "cartPrice": cartPrice,
-      "cartBrandName": cartBrandName,
-      // "cartQuantity":cartQuantity,
-    });
+        .set(
+      {
+        "cartName": cartName,
+        "cartmage": cartmage,
+        "cartPrice": cartPrice,
+        "cartBrandName": cartBrandName,
+        // "cartQuantity":cartQuantity,
+      },
+    );
 
     notifyListeners();
   }
@@ -38,5 +38,13 @@ class ReviewCartController extends ChangeNotifier {
         .delete();
   }
 
-
+  snackbarFunction(context) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      duration: Duration(seconds: 2),
+      dismissDirection: DismissDirection.up,
+      backgroundColor: red,
+      content: Text('Added to cart Sucessfully '),
+    ));
+    notifyListeners();
+  }
 }

@@ -31,16 +31,15 @@ class ProductRespository with ChangeNotifier {
     notifyListeners();
   }
 
-  // kidsDress() async {
-  //   QuerySnapshot<Map<String, dynamic>> snapshots =
-  //       await FirebaseFirestore.instance.collection('KidsCollections').get();
+  kidsDress() async {
+    QuerySnapshot<Map<String, dynamic>> snapshots =
+        await FirebaseFirestore.instance.collection('KidsCollections').get();
 
-  //   final list = snapshots.docs
-  //       .map((docSnap) => ProductModel.fromSnapshot(docSnap))
-  //       .toList();
-  //   // log(list.length.toString());
-  //   kidsDressCollection.addAll(list);
+    final list = snapshots.docs
+        .map((docSnap) => ProductModel.fromSnapshot(docSnap))
+        .toList();
+    kidsDressCollection.addAll(list);
 
-  //   notifyListeners();
-  // }
+    notifyListeners();
+  }
 }

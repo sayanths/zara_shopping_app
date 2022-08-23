@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
+import 'package:food_delivery/over_view/view/payment.dart';
+import 'package:food_delivery/routes/routes.dart';
 import 'widgets/review_cartlist_tile.dart';
 
 class ReviewCart extends StatelessWidget {
@@ -11,7 +13,6 @@ class ReviewCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 222, 221, 221),
       appBar: AppBar(
@@ -53,7 +54,9 @@ class ReviewCart extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               color: const Color.fromARGB(255, 183, 0, 61),
-              onPressed: () {},
+              onPressed: () {
+                Routes.push(screen: PaymentPage());
+              },
               child: Text(
                 "Submit",
                 style: gFontsSans(cl: whiteColor, fw: FontWeight.w500),
