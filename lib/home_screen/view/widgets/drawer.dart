@@ -4,15 +4,14 @@ import 'package:food_delivery/botchat/view/chat_bot.dart';
 import 'package:food_delivery/core/color/colors.dart';
 import 'package:food_delivery/core/styles/fonts.dart';
 import 'package:food_delivery/routes/routes.dart';
-import 'package:provider/provider.dart';
 
-import '../../../sign_screen/viewmodel/auth_pov.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     Size size = MediaQuery.of(context).size;
     return ColoredBox(
       color: const Color.fromARGB(255, 254, 145, 181),

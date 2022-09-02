@@ -1,9 +1,8 @@
 //mele okke youtube channnel pole pop ponthi local notification veran vendit
 
-
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class LocalNotificationService {
@@ -20,9 +19,13 @@ class LocalNotificationService {
     _notificationsPlugin.initialize(
       initializationSettings,
       onSelectNotification: (String? id) async {
-        print("onSelectNotification");
+        if (kDebugMode) {
+          print("onSelectNotification");
+        }
         if (id!.isNotEmpty) {
-          print("router value $id");
+          if (kDebugMode) {
+            print("router value $id");
+          }
         }
       },
     );
@@ -46,7 +49,9 @@ class LocalNotificationService {
           message.notification!.body, notificationDetails,
           payload: message.data['_id']);
     } on Exception catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 }

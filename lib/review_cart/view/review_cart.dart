@@ -55,7 +55,7 @@ class ReviewCart extends StatelessWidget {
               ),
               color: const Color.fromARGB(255, 183, 0, 61),
               onPressed: () {
-                Routes.push(screen: PaymentPage());
+                Routes.push(screen: const PaymentPage());
               },
               child: Text(
                 "Submit",

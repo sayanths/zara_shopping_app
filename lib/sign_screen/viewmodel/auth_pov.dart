@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../home_screen/view/home_screen.dart';
 
 class AuthPov extends ChangeNotifier {
+  // ignore: unused_field
   final FirebaseAuth _auth;
 
   AuthPov(this._auth);

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/botchat/view_model/bot_controller.dart';
-import 'package:food_delivery/home_screen/view/home_screen.dart';
 import 'package:food_delivery/home_screen/view_model/local_notification_service.dart';
 import 'package:food_delivery/home_screen/view_model/product_controller.dart';
 import 'package:food_delivery/home_screen/view_model/user_provider.dart';
@@ -18,8 +18,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'home_screen/view_model/notification.dart';
 
 Future<void> backGroundHandler(RemoteMessage message) async {
-  print(message.data.toString());
-  print(message.notification!.title);
+  if (kDebugMode) {
+    print(message.data.toString());
+  }
+  if (kDebugMode) {
+    print(message.notification!.title);
+  }
 }
 
 void main() async {
@@ -56,7 +60,7 @@ class MyApp extends StatelessWidget {
             create: (context) => ReviewCartController()),
         ChangeNotifierProvider<NotificationController>(
             create: (context) => NotificationController()),
-            ChangeNotifierProvider<BotController>(
+        ChangeNotifierProvider<BotController>(
             create: (context) => BotController()),
       ],
       child: MaterialApp(

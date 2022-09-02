@@ -15,26 +15,11 @@ import 'package:provider/provider.dart';
 class ProductOverView extends StatelessWidget {
   final QueryDocumentSnapshot<Object?> data;
 
-   ProductOverView({Key? key, required this.data})
-      : super(key: key);
-
-//   @override
-//   State<ProductOverView> createState() => _ProductOverViewState();
-// }
-
-// class _ProductOverViewState extends State<ProductOverView> {
-  // late String productImage;
-  // late String productName;
-  // late String productId;
-  // late String productQuantity;
-  // late String productPrice;
-
- // final idd = FirebaseFirestore.instance.collection('reviewCart').doc();
+  const ProductOverView({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final pov = context.read<ProductRespository>();
-    final cartPov = context.read<ReviewCartController>();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteColor,
@@ -78,7 +63,7 @@ class ProductOverView extends StatelessWidget {
               ),
             ),
           ),
-        
+
           Column(
             children: [
               SizedBox(
@@ -221,7 +206,7 @@ class ProductOverView extends StatelessWidget {
                     cartPrice: data['productPrice'],
                     cartBrandName: data['brandName'],
                   );
-                 value.snackbarFunction(context);
+                  value.snackbarFunction(context);
                 },
                 child: const CustomBottomNavBar(
                   iconColor: whiteColor,

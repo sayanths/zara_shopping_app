@@ -9,12 +9,14 @@ class CounterIncreamentDec extends ChangeNotifier {
   setCounter(int counter) => count = counter;
 
   incrementCounter(String valueInc) {
+    // ignore: unrelated_type_equality_checks
     valueInc != 0 ? count++ : count;
     notifyListeners();
   }
 
   decrementCounter(String valueDec) {
-     valueDec != 0 ? count-- : count;
+    // ignore: unrelated_type_equality_checks
+    valueDec != 0 ? count-- : count;
     notifyListeners();
   }
 }

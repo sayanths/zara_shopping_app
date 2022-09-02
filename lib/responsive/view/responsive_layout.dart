@@ -1,4 +1,3 @@
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 class ResponsiveLayout extends StatelessWidget {
@@ -21,7 +20,6 @@ class ResponsiveLayout extends StatelessWidget {
         return tabletScaffold;
       } else {
         desktopScaffold;
-        
       }
       return const SizedBox();
     }));
