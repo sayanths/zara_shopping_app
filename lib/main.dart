@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/botchat/view_model/bot_controller.dart';
 import 'package:food_delivery/home_screen/view/home_screen.dart';
 import 'package:food_delivery/home_screen/view_model/local_notification_service.dart';
 import 'package:food_delivery/home_screen/view_model/product_controller.dart';
@@ -55,6 +56,8 @@ class MyApp extends StatelessWidget {
             create: (context) => ReviewCartController()),
         ChangeNotifierProvider<NotificationController>(
             create: (context) => NotificationController()),
+            ChangeNotifierProvider<BotController>(
+            create: (context) => BotController()),
       ],
       child: MaterialApp(
         navigatorKey: Routes.navigatorKey,

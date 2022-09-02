@@ -1,6 +1,8 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/botchat/view_model/bot_controller.dart';
 import 'package:food_delivery/core/color/colors.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/messages.dart';
 
@@ -15,16 +17,9 @@ class _ChatBotState extends State<ChatBot> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController controller = TextEditingController();
 
-  List<Map<String, dynamic>> messages = [];
-
-  @override
-  void initState() {
-    DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final cont = Provider.of<BotController>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: blackColor,
@@ -35,7 +30,7 @@ class _ChatBotState extends State<ChatBot> {
           children: [
             Expanded(
                 child: MessagesScreens(
-              messages: messages,
+              messages: cont.messages,
             )),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -50,7 +45,8 @@ class _ChatBotState extends State<ChatBot> {
                   ),
                   IconButton(
                     onPressed: () {
-                      sendMessage(controller.text);
+                      cont.sendMessage(controller.text);
+
                       controller.clear();
                     },
                     icon: const Icon(Icons.send),
@@ -62,28 +58,5 @@ class _ChatBotState extends State<ChatBot> {
         ),
       ),
     );
-  }
-
-  sendMessage(String text) async {
-    if (text.isEmpty) {
-      print("message is empty");
-    } else {
-      setState(() {
-        addMessage(Message(text: DialogText(text: [text])), true);
-      });
-      DetectIntentResponse response = await dialogFlowtter.detectIntent(
-          queryInput: QueryInput(text: TextInput(text: text)));
-      if (response.message == null) {
-        return;
-      } else {
-        setState(() {
-          addMessage(response.message!);
-        });
-      }
-    }
-  }
-
-  addMessage(Message message, [bool isUserMessage = false]) {
-    messages.add({'message': message, 'isUserMessage': isUserMessage});
   }
 }
